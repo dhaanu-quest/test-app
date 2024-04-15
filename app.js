@@ -13,11 +13,11 @@ app.post('/test', async (req, res) => {
     try {
         console.log(req?.body)
         console.log(req?.body?.event?.text);
-        const result = await web.chat.postMessage({
-            channel: req.body.event.channel,
-            text: "How are you",
-        });
-        console.log(result); 
+        // const result = await web.chat.postMessage({
+        //     channel: req.body.event.channel,
+        //     text: "How are you",
+        // });
+        // console.log(result); 
         res.json({ challenge: req?.body?.challenge });
     } catch (error) {
         console.log(error);
