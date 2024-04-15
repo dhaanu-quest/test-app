@@ -9,7 +9,7 @@ app.use(express.json())
 const web = new WebClient(process.env.BOT_TOKEN);
 
 app.post('/test', async (req, res) => { 
-    console.log("MiscFunctions:testSlackFunction");
+    console.log("testSlackFunction");
     try {
         console.log(req?.body)
         console.log(req?.body?.event?.text);
