@@ -7,15 +7,16 @@ console.log(process.env.BOT_TOKEN)
 
 const web = new WebClient(process.env.BOT_TOKEN);
 
-app.post('/', async (req, res) => {
+app.post('/test', async (req, res) => {
     console.log("MiscFunctions:testSlackFunction")
     try {
         // const result = await web.chat.postMessage({
         //     channel: req.body.event.channel,
         //     text: "How are you",
         // });
+        console.log(req?.body)
         console.log("Slack chat")
-        return { success: true, challenge: req?.body?.challenge } 
+        return { challenge: req?.body?.challenge } 
     } catch (error) {
         console.log(error)
         return { success: false, error: "Unable to process" } 
