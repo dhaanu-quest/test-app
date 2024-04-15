@@ -8,21 +8,23 @@ app.use(express.json())
 
 const web = new WebClient(process.env.BOT_TOKEN);
 
-app.post('/test', (req, res) => {
-    console.log("MiscFunctions:testSlackFunction")
+app.post('/test', async (req, res) => { 
+    console.log("MiscFunctions:testSlackFunction");
     try {
-        // const result = await web.chat.postMessage({
-        //     channel: req.body.event.channel,
-        //     text: "How are you",
-        // });
         console.log(req?.body)
-        console.log("Slack chat")
+        console.log(req?.body?.event?.text);
+        const result = await web.chat.postMessage({
+            channel: req.body.event.channel,
+            text: "How are you",
+        });
+        console.log(result); 
         res.json({ challenge: req?.body?.challenge });
     } catch (error) {
-        console.log(error)
-        return { success: false, error: "Unable to process" }
+        console.log(error);
+        res.status(500).json({ success: false, error: "Unable to process" }); // Sending error response
     }
 });
+
 
 app.listen(port, () => {
     console.log(`Server is listening at ${port}`);
