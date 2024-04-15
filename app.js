@@ -4,7 +4,7 @@ const port = 8080;
 const { WebClient } = require('@slack/web-api');
 require('dotenv').config()
 
-app.use(express,json())
+app.use(express.json())
 
 const web = new WebClient(process.env.BOT_TOKEN);
 
