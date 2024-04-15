@@ -7,7 +7,7 @@ console.log(process.env.BOT_TOKEN)
 
 const web = new WebClient(process.env.BOT_TOKEN);
 
-app.post('/test', async (req, res) => {
+app.post('/test', (req, res) => {
     console.log("MiscFunctions:testSlackFunction")
     try {
         // const result = await web.chat.postMessage({
