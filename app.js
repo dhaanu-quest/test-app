@@ -17,10 +17,10 @@ app.post('/test', (req, res) => {
         // });
         console.log(req?.body)
         console.log("Slack chat")
-        return { challenge: req?.body?.challenge } 
+        res.json({ challenge: req?.body?.challenge });
     } catch (error) {
         console.log(error)
-        return { success: false, error: "Unable to process" } 
+        return { success: false, error: "Unable to process" }
     }
 });
 
