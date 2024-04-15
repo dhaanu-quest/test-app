@@ -15,10 +15,10 @@ app.post('/', async (req, res) => {
         //     text: "How are you",
         // });
         console.log("Slack chat")
-        return { status: 200, json: { success: true, challenge: req?.body?.challenge } }
+        return { success: true, challenge: req?.body?.challenge } 
     } catch (error) {
         console.log(error)
-        return { status: 500, json: { success: false, error: "Unable to process" } }
+        return { success: false, error: "Unable to process" } 
     }
 });
 
