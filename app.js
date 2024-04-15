@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const port = 8080;
 const { WebClient } = require('@slack/web-api');
-const botToken = 'xoxb-6065759651110-6927398352627-bR92IkrST2Q2QPo4ZmpSGF1S';
+require('dotenv').config()
+console.log(process.env.BOT_TOKEN)
 
-const web = new WebClient(botToken);
+const web = new WebClient(process.env.BOT_TOKEN);
 
 app.post('/', async (req, res) => {
     console.log("MiscFunctions:testSlackFunction")
