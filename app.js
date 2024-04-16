@@ -36,10 +36,12 @@ app.post('/test', async (req, res) => {
             console.log("Received user message:", eventData.event.text);
 
             const randomMessage = getRandomResponse();
+            const thread_ts = eventData?.event?.thread_ts || eventData?.event?.ts; 
 
             const result = await web.chat.postMessage({
                 channel: eventData.event.channel,
                 text: randomMessage,
+                thread_ts: thread_ts,
             });
             console.log("Sent reply to user message:", result);
         } else if (eventData.ok === true && eventData.message && eventData.message.bot_id) {
